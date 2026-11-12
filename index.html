@@ -3,10 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인정보 취급방침</title>
+    <meta name="description" content="감성개발자 및 thelc-youtube-desktop YouTube OAuth 앱 개인정보 처리방침">
+    <title>개인정보 처리방침 | thelc-youtube-desktop</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            color: #172033;
+            background: #f5f7fb;
+        }
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px 72px;
+            background: #fff;
+            box-sizing: border-box;
+        }
+        h1, h2, h3 { line-height: 1.35; color: #0f172a; }
+        h1 { margin-bottom: 8px; }
+        h2 { margin-top: 40px; padding-top: 8px; }
+        h3 { margin-top: 28px; }
+        a { color: #1456b8; overflow-wrap: anywhere; }
+        code {
+            padding: 2px 5px;
+            border-radius: 4px;
+            background: #eef2f7;
+            overflow-wrap: anywhere;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { padding: 12px; border: 1px solid #d8dee9; text-align: left; vertical-align: top; }
+        th { background: #f2f5f9; }
+        .meta { margin-top: 0; color: #536173; }
+        .summary, .notice {
+            margin: 24px 0;
+            padding: 18px 20px;
+            border: 1px solid #bfd3f6;
+            border-radius: 10px;
+            background: #f5f9ff;
+        }
+        .notice { border-color: #e3c46f; background: #fffaf0; }
+        .toc { padding: 16px 20px; border-radius: 10px; background: #f2f5f9; }
+        .toc ul { margin: 6px 0; }
+        hr { margin: 48px 0 24px; border: 0; border-top: 1px solid #d8dee9; }
+        @media (max-width: 640px) {
+            body { padding: 24px 16px 56px; }
+            table, thead, tbody, tr, th, td { display: block; }
+            th { border-bottom: 0; }
+            td { border-top: 0; }
+        }
+    </style>
 </head>
 <body>
 <h1>개인정보 처리방침</h1>
+<p class="meta">최종 개정 및 시행일: 2026년 11월 12일</p>
+
+<div class="summary">
+    <strong>YouTube OAuth 앱 적용 안내</strong>
+    <p>본 방침의 YouTube OAuth 관련 조항은 Google Cloud에 등록된 데스크톱 앱 <code>thelc-youtube-desktop</code>(프로젝트 <code>tlc-0691</code>)에 적용됩니다. 이 앱은 주님의교회 YouTube 채널 운영자가 동의한 범위에서 동영상 업로드와 채널·동영상·재생목록 관리를 자동화하기 위해 사용됩니다.</p>
+    <p>앱 홈페이지는 <a href="https://lovizu.com/">https://lovizu.com/</a>입니다.</p>
+</div>
+
+<nav class="toc" aria-label="목차">
+    <strong>목차</strong>
+    <ul>
+        <li><a href="#youtube-oauth">YouTube OAuth 앱 전용 조항</a></li>
+        <li><a href="#existing-policy">기존 서비스 일반 조항</a></li>
+        <li><a href="#contact">개인정보 및 OAuth 문의</a></li>
+    </ul>
+</nav>
+
+<section id="youtube-oauth">
+    <h2>YouTube OAuth 앱 전용 조항</h2>
+
+    <h3>1. 앱의 목적과 운영 범위</h3>
+    <p><code>thelc-youtube-desktop</code>은 YouTube Data API v3와 Google OAuth 2.0을 사용하는 데스크톱 자동화 도구입니다. 승인한 사용자의 YouTube 채널을 확인하고, 사용자가 지정한 동영상과 메타데이터를 업로드하며, 업로드 결과·처리 상태·재생목록 반영 여부를 확인하는 용도로만 사용합니다.</p>
+    <p>Google Cloud의 현재 설정상 사용자 유형은 외부, 게시 상태는 테스트 중이며, 등록된 테스트 사용자만 앱에 접근할 수 있습니다. 별도의 공개 회원가입 기능은 없습니다.</p>
+
+    <h3>2. 요청하는 Google OAuth 권한</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>OAuth 범위</th>
+            <th>사용 목적</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><code>https://www.googleapis.com/auth/youtube.readonly</code></td>
+            <td>승인한 YouTube 채널과 동영상·재생목록 정보 및 처리 상태를 조회하고 작업 결과를 검증합니다.</td>
+        </tr>
+        <tr>
+            <td><code>https://www.googleapis.com/auth/youtube.upload</code></td>
+            <td>사용자가 지정한 동영상을 승인한 YouTube 채널에 업로드합니다.</td>
+        </tr>
+        <tr>
+            <td><code>https://www.googleapis.com/auth/youtube</code></td>
+            <td>승인한 채널의 동영상 제목·설명·미리보기 이미지·공개 상태 등 메타데이터와 재생목록 항목을 관리합니다.</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>앱은 위 권한을 통해 Google 계정 비밀번호를 요청하거나 수집하지 않습니다. 인증과 동의는 Google의 OAuth 화면에서 처리됩니다.</p>
+
+    <h3>3. 접근·수집·저장하는 정보</h3>
+    <ul>
+        <li>OAuth 액세스 토큰, 갱신 토큰 및 승인된 권한 범위</li>
+        <li>승인한 YouTube 채널의 채널 ID, 채널명, 맞춤 URL 및 업로드 재생목록 식별자</li>
+        <li>YouTube API가 반환하는 동영상 ID, 제목, 설명, 미리보기 이미지, 공개·처리 상태, 게시 시각 및 재생목록 식별자</li>
+        <li>사용자가 자동화 실행을 위해 지정한 동영상, 미리보기 이미지, 제목, 설명, 태그 및 공개 설정</li>
+    </ul>
+    <p>OAuth 토큰은 운영자가 관리하는 로컬 자동화 환경에 저장됩니다. YouTube 동영상 식별자와 메타데이터, API 작업 결과는 업로드 검증과 관련 서비스 표시·관리를 위해 로컬 작업 기록 및 관련 서비스 데이터베이스에 저장될 수 있습니다.</p>
+
+    <h3>4. 정보 이용, 공유 및 처리위탁</h3>
+    <p>위 정보는 사용자가 승인한 YouTube 자동화 기능을 제공하고 오류를 확인하는 데만 이용합니다. Google 사용자 데이터를 판매하거나, 맞춤형 광고·리타게팅·감시·신용평가 목적으로 이용하거나, 데이터 브로커 또는 광고 플랫폼에 제공하지 않습니다.</p>
+    <ul>
+        <li><strong>Google LLC / YouTube:</strong> OAuth 인증과 YouTube Data API 요청 처리</li>
+        <li><strong>Supabase Inc.:</strong> 관련 서비스의 PostgreSQL 데이터베이스 운영. YouTube 동영상 식별자와 메타데이터가 관련 서비스 표시·관리를 위해 저장될 수 있으며, OAuth 토큰은 이 데이터베이스에 저장하지 않습니다.</li>
+    </ul>
+    <p>그 밖에는 사용자의 별도 동의가 있거나 법령상 의무를 이행해야 하는 경우를 제외하고 Google 사용자 데이터를 제3자에게 제공하지 않습니다.</p>
+    <p>데스크톱 앱은 광고를 제공하거나 맞춤형 광고를 위한 추적 기술을 사용하지 않습니다. 이 개인정보 처리방침 페이지도 입력 양식, 광고 또는 분석·추적 스크립트를 포함하지 않습니다.</p>
+
+    <h3>5. 보유 기간과 삭제</h3>
+    <ul>
+        <li>OAuth 토큰은 사용자가 접근 권한을 유지하고 자동화 기능을 사용하는 동안 보유합니다.</li>
+        <li>YouTube API 작업 결과와 승인된 데이터는 업로드 검증 및 관련 콘텐츠 관리에 필요한 동안 보유합니다.</li>
+        <li>사용자가 권한을 철회하거나 삭제를 요청하면 해당 OAuth 토큰과 그 동의에 근거해 저장한 승인 데이터를 가능한 한 즉시, 늦어도 7일 이내에 삭제합니다. 법령상 보존 의무가 있는 정보는 해당 의무 기간에만 별도로 보관합니다.</li>
+        <li>로컬 또는 관련 서비스에서 데이터를 삭제하거나 OAuth 권한을 철회해도 이미 YouTube에 게시된 콘텐츠는 자동 삭제되지 않습니다. 해당 콘텐츠는 사용자가 YouTube 또는 YouTube Studio에서 별도로 관리할 수 있습니다.</li>
+    </ul>
+
+    <h3>6. 권한 철회 및 삭제 요청 방법</h3>
+    <ol>
+        <li><a href="https://security.google.com/settings/security/permissions">Google 계정 보안 설정</a>에서 <code>thelc-youtube-desktop</code>의 접근 권한을 철회할 수 있습니다.</li>
+        <li>저장된 데이터 삭제는 <a href="mailto:private@lovizu.com">private@lovizu.com</a>으로 요청할 수 있습니다. 요청 대상 Google 계정이나 YouTube 채널을 확인할 수 있는 정보와 삭제 범위를 기재해 주십시오. 비밀번호나 OAuth 토큰은 보내지 마십시오.</li>
+    </ol>
+
+    <h3>7. 보안 조치</h3>
+    <p>OAuth 토큰 파일은 운영자 계정만 접근할 수 있도록 제한하고, 토큰·클라이언트 보안 비밀·인증 코드를 공개 저장소나 공개 로그에 기록하지 않습니다. Google API 통신에는 HTTPS를 사용하며, 접근 권한은 자동화 운영에 필요한 담당자로 제한합니다.</p>
+
+    <h3>8. Google 및 YouTube 정책</h3>
+    <p>앱은 <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service">YouTube API Services 이용약관</a>과 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>을 따릅니다. 앱을 사용하면 YouTube 서비스 약관의 적용에 동의하는 것으로 봅니다.</p>
+    <p>앱이 Google API에서 받은 정보를 사용하거나 다른 앱으로 전송하는 경우, <a href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes">Google API Services User Data Policy</a> 및 Limited Use 요구사항을 준수합니다. Google의 자체 정보 처리에는 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>이 적용됩니다.</p>
+
+    <h3 id="contact">9. 개인정보 및 OAuth 문의</h3>
+    <ul>
+        <li>개인정보·삭제 요청: <a href="mailto:private@lovizu.com">private@lovizu.com</a></li>
+        <li>OAuth 앱 사용자 지원: <a href="mailto:0691tlc@gmail.com">0691tlc@gmail.com</a></li>
+    </ul>
+</section>
+
+<hr>
+<section id="existing-policy">
+<h2>기존 서비스 일반 조항</h2>
+<div class="notice">
+    아래의 기존 조항은 감성개발자의 일반 서비스에 적용하기 위해 유지합니다. <code>thelc-youtube-desktop</code>의 Google·YouTube 데이터 처리에 관해서는 위의 “YouTube OAuth 앱 전용 조항”이 우선 적용되며, 이 앱은 Google 계정 비밀번호, 일반 서비스 로그인 ID, 결제 또는 배송 정보를 직접 수집하지 않습니다.
+</div>
 
 <h2>1. 개인정보의 처리 목적</h2>
 <p>‘감성개발자’는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.</p>
@@ -76,5 +226,6 @@
 
 <h2>10. 개인정보 처리방침 변경</h2>
 <p>이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+</section>
 </body>
 </html>
